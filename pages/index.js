@@ -1,10 +1,10 @@
 import Head from "next/head";
-import { getYearType, today } from "/lib/litrugicYear";
+import { getYearType } from "/lib/litrugicYear";
 
 const name = "Jaký je liturgický cyklus?";
 const description = "Nevíš, jaký je momentálně liturgický cyklus? Nech si poradit!";
 const theme_color = "#000";
-const url = "https://kam-jet.vercel.app/";
+const url = "https://jaky-cyklus.vercel.app/";
 
 export default function Home() {
   const output = getYearType();
