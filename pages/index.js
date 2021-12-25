@@ -1,22 +1,13 @@
 import Head from "next/head";
-import { useState } from "react";
-import { data } from "/lib/data/data.js";
+import { getYearType } from "/lib/litrugicYear";
 
-function randomIntFromInterval(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-function getText() {
-  return data[randomIntFromInterval(0, data.length - 1)];
-}
-
-const name = "Kam se dneska vydat?";
-const description = "Netušíš, kam se dneska vydat na tripec? Nech si poradit!";
+const name = "Jaký je liturgický cyklus?";
+const description = "Nevíš, jaký je momentálně liturgický cyklus? Nech si poradit!";
 const theme_color = "#365314";
 const url = "https://kam-jet.vercel.app/";
 
 export default function Home() {
-  const [text, setText] = useState("Fakt netušíš?");
+  const otuput = getYearType();
   return (
     <div className="w-full dark:bg-black">
       <Head>
@@ -66,19 +57,8 @@ export default function Home() {
         <meta name="description" content={description} />
       </Head>
 
-      <main className="flex flex-col items-center min-h-screen justify-center">
-        <h1 className="text-4xl font-bold mb-8 text-center dark:text-white">
-          Kam na tripec?
-        </h1>
-        <button
-          onClick={() => setText(getText())}
-          className="p-4 bg-lime-300 text-lime-900 rounded-full drop-shadow-xl font-semibold uppercase text-xl"
-        >
-          poraď mi
-        </button>
-        <div className="text-lg mt-5 text-center dark:text-white mx-5">
-          {text}
-        </div>
+      <main className="flex flex-col items-center min-h-screen justify-center dark:text-white">
+        {otuput}
       </main>
     </div>
   );
