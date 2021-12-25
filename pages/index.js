@@ -1,15 +1,21 @@
 import Head from "next/head";
-import { getYearType } from "/lib/litrugicYear";
+import { getYearType, today } from "/lib/litrugicYear";
 
 const name = "Jaký je liturgický cyklus?";
 const description = "Nevíš, jaký je momentálně liturgický cyklus? Nech si poradit!";
-const theme_color = "#365314";
+const theme_color = "#000";
 const url = "https://kam-jet.vercel.app/";
 
 export default function Home() {
-  const otuput = getYearType();
+  const output = getYearType();
+  let color = "";
+
+  if (output === "A") color = "bg-lime-50 text-lime-900 dark:text-lime-200";
+  if (output === "B") color = "bg-amber-300 text-amber-900 dark:text-amber-300";
+  if (output === "C") color = "bg-sky-50 text-sky-900 dark:text-sky-300";
+
   return (
-    <div className="w-full dark:bg-black">
+    <div className={color}>
       <Head>
         <title>{name}</title>
         <meta name="application-name" content={name} />
@@ -57,8 +63,8 @@ export default function Home() {
         <meta name="description" content={description} />
       </Head>
 
-      <main className="flex flex-col items-center min-h-screen justify-center dark:text-white">
-        {otuput}
+      <main className="w-full flex flex-col items-center min-h-screen justify-center dark:bg-black">
+        <span className="text-6xl font-bold">{output}</span>
       </main>
     </div>
   );

@@ -1,12 +1,12 @@
 {
-    "theme_color": "#365314",
+    "theme_color": "#000",
     "background_color": "#fff",
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
-    "name": "Kam se dneska vydat?",
-    "short_name": "Kam na tripec?",
-    "description": "Netušíš, kam se dneska vydat na tripec? Nech si poradit!",
+    "name": "Jaký je liturgický cyklus?",
+    "short_name": "Cyklus?",
+    "description": "Nevíš, jaký je momentálně liturgický cyklus? Nech si poradit!",
     "icons": [
         {
             "src": "/icon/icon-192x192.png",
